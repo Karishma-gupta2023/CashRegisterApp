@@ -1,0 +1,64 @@
+const billAmount = document.querySelector('#bill-amount');
+const nextButton = document.querySelector('#next-button');
+
+const cashGiven = document.querySelector('#cash-given');
+const checkButton = document.querySelector('#check-button');
+
+const errorMessage = document.querySelector('.error-message');
+
+const cashGivenDiv = document.querySelector('.cashGivenInput');
+const changeReturnDiv = document.querySelector('.change-return');
+
+const noOfNotes = document.querySelectorAll('.no-of-notes');
+
+const availableNotes = [2000, 500, 100, 50, 20, 10, 5, 1];
+
+
+
+nextButton.addEventListener('click', function  validateBillAmount(){
+    
+    
+    if(Number(billAmount.value) > 0){
+        nextButton.style.display = "none";
+        cashGivenDiv.style.display = "block";
+    } else {
+        showMessage("Invalid Bill Amount! Enter a valid Bill Amount");
+    }
+});
+
+checkButton.addEventListener('click', function  validateCashGiven(){
+    
+ 
+    if(Number(billAmount.value)>0 && Number(cashGiven.value)>0){
+        if(Number(cashGiven.value) >= Number(billAmount.value)){
+            const amountToBeReturned = Number(cashGiven.value) - Number(billAmount.value);
+            if(amountToBeReturned<1){
+                showMessage("No amount should be returned");
+                changeReturnDiv.style.display = "none";
+            } else{
+                calculateChange(amountToBeReturned);
+            }
+        } else{
+            showMessage("Cash amount should be more than or equal to the bill amount");
+        }
+    } else{
+        showMessage("Invalid input! Enter valid Bill Amount & Cash Given to continue");
+    }  
+});
+
+function calculateChange(amountToBeReturned){
+    changeReturnDiv.style.display = "block";
+    for(let i = 0; i < availableNotes.length; i++){
+        const numberOfNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
+        amountToBeReturned = amountToBeReturned % availableNotes[i];
+        noOfNotes[i].innerText = numberOfNotes;
+    }
+}
+
+
+function showMessage(message){
+    errorMessage.style.display = "block";
+    errorMessage.innerText = message;
+    errorMessage.style.color = "red";
+    
+}
