@@ -3,6 +3,9 @@
   padding:0;
 }
 
+body{
+  background-color: whitesmoke;
+}
 .cashGivenInput {
   display: none;
 }
@@ -17,12 +20,33 @@
   justify-content: center;
   align-items: center;
   color: blueviolet;
-  border:2px solid white;
+  
   gap: 1rem;
 }
 
-table{
-  border:2px solid blueviolet;
+table,th,td{
+  border:2px solid white;
+  background-origin: padding-box;
+  color:white;
+  background-color: blueviolet;
   
 }
 
+button{
+  background-color: blueviolet;
+  color:white;
+  padding:0.5rem;
+  font-size:medium;
+  width:fit-content;
+  border-color: white;
+}
+
+.label{
+  font-size: large;
+}
+
+
+#cash-given,#bill-amount{
+  border-color: blueviolet;
+  color:blueviolet;
+}
