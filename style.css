@@ -8,6 +8,7 @@ body{
 }
 .cashGivenInput {
   display: none;
+ 
 }
 
 .change-return {
@@ -20,7 +21,7 @@ body{
   justify-content: center;
   align-items: center;
   color: blueviolet;
-  
+  margin:3rem;
   gap: 1rem;
 }
 
@@ -35,10 +36,11 @@ table,th,td{
 button{
   background-color: blueviolet;
   color:white;
-  padding:0.5rem;
-  font-size:medium;
+  padding:1rem;
+  font-size:large;
   width:fit-content;
   border-color: white;
+  border-radius: 0.5rem;
 }
 
 .label{
@@ -49,4 +51,5 @@ button{
 #cash-given,#bill-amount{
   border-color: blueviolet;
   color:blueviolet;
+  font-size: large;
 }
